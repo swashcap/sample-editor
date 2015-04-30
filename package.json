@@ -1,0 +1,27 @@
+{
+  "name": "sample-editor",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --content-base app --hot --progress --colors"
+  },
+  "author": "Cory Reed <swashcap@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^5.1.13",
+    "babel-loader": "^5.0.0",
+    "css-loader": "^0.12.0",
+    "node-sass": "^2.1.1",
+    "sass-loader": "^0.6.0",
+    "style-loader": "^0.12.1",
+    "webpack": "^1.8.10",
+    "webpack-dev-server": "^1.8.2"
+  },
+  "dependencies": {
+    "codemirror": "^5.2.0",
+    "jsx-loader": "^0.13.2",
+    "react": "^0.13.2",
+    "react-code-mirror": "^3.0.4"
+  }
+}

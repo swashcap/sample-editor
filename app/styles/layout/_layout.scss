@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.site-header,
+.site-footer {
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.site-header {
+  top: 0;
+}
+.site-content {
+  margin: 3.375em 0 2.875em;
+
+  @media (min-width: 800px) {
+    padding-right: 50%;
+    position: relative;
+
+    .output-document {
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+    }
+  }
+}
+.site-footer {
+  bottom: 0;
+}

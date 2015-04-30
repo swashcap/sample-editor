@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Defaults
+   ========================================================================== */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  background: $white;
+  color: $gray-darker;
+  font-family: 'Avenir Next', 'Helvetica Neue', sans-serif;
+}
