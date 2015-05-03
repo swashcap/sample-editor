@@ -3,8 +3,9 @@
 var React = require('react');
 var Store = require('../stores/Store');
 var MarkupEditor = require('./MarkupEditor');
-var StyleEditor = require('./StyleEditor');
+var Notifications = require('./Notifications');
 var OutputDocument = require('./OutputDocument');
+var StyleEditor = require('./StyleEditor');
 
 function getState() {
   return {
@@ -29,6 +30,7 @@ module.exports = React.createClass({
   render: function () {
     return (
       <div>
+        <Notifications />
         <MarkupEditor />
         <StyleEditor />
         <OutputDocument
