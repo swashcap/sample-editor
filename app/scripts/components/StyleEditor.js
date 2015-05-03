@@ -1,19 +1,20 @@
-var React = require('react');
-var CodeMirrorEditor = require('react-code-mirror')
+'use strict';
 
-require('codemirror/mode/css/css');
+var React = require('react');
+var CodeEditor = require('./CodeEditor');
 
 var StyleEditor = React.createClass({
   getInitialState: function () {
     return {
-      src: ''
+      src: '',
+      mode: 'sass'
     };
   },
   handleChange: function (e) {
     this.setState({src: e.target.value});
   },
   changeMode: function (e) {
-
+    this.setState({mode: e.target.value});
   },
   render: function () {
     return (
@@ -22,18 +23,15 @@ var StyleEditor = React.createClass({
           <h1 className="editor__name">Styles</h1>
           <div className="editor__options">
             <label>Mode:</label>
-            <select onChange={this.changeMode}>
-              <option>CSS</option>
-              <option>Sass</option>
+            <select onChange={this.changeMode} value={this.state.mode}>
+              <option value="css">CSS</option>
+              <option value="sass">Sass</option>
             </select>
           </div>
         </header>
-        <CodeMirrorEditor
-          style={{border: "1px solid black"}}
+        <CodeEditor
           value={this.state.src}
-          mode="css"
-          theme="base16-dark"
-          lineNumbers={true}
+          mode={this.state.mode}
           onChange={this.handleChange} />
       </section>
     );

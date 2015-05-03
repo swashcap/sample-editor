@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var MarkupEditor = require('./MarkupEditor');
 var StyleEditor = require('./StyleEditor');
