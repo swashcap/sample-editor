@@ -2,16 +2,18 @@
 
 var React = require('react');
 var CodeEditor = require('./CodeEditor');
+var Actions = require('../actions/Actions');
 
 var MarkupEditor = React.createClass({
   getInitialState: function () {
     return {
-      src: '<h1>Hello!</h1>',
+      src: '',
       mode: 'html'
     };
   },
   handleChange: function (e) {
     this.setState({src: e.target.value});
+    Actions.updateMarkup(e.target.value);
   },
   changeMode: function (e) {
     this.setState({mode: e.target.value});

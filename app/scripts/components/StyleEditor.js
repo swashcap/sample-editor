@@ -2,6 +2,7 @@
 
 var React = require('react');
 var CodeEditor = require('./CodeEditor');
+var Actions = require('../actions/Actions');
 
 var StyleEditor = React.createClass({
   getInitialState: function () {
@@ -12,6 +13,7 @@ var StyleEditor = React.createClass({
   },
   handleChange: function (e) {
     this.setState({src: e.target.value});
+    Actions.updateStyles(e.target.value);
   },
   changeMode: function (e) {
     this.setState({mode: e.target.value});
