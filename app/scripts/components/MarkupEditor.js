@@ -8,12 +8,17 @@ var MarkupEditor = React.createClass({
   getInitialState: function () {
     return {
       src: '',
-      mode: 'html'
+      mode: 'markdown'
     };
   },
   handleChange: function (e) {
+    var self = this;
+
     this.setState({src: e.target.value});
-    Actions.updateMarkup(e.target.value);
+    Actions.updateMarkup({
+      content: e.target.value,
+      mode: self.state.mode
+    });
   },
   changeMode: function (e) {
     this.setState({mode: e.target.value});

@@ -12,8 +12,13 @@ var StyleEditor = React.createClass({
     };
   },
   handleChange: function (e) {
+    var self = this;
+
     this.setState({src: e.target.value});
-    Actions.updateStyles(e.target.value);
+    Actions.updateStyles({
+      content: e.target.value,
+      mode: self.state.mode
+    });
   },
   changeMode: function (e) {
     this.setState({mode: e.target.value});

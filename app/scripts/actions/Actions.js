@@ -3,20 +3,16 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
 var Actions = {
-  updateMarkup: function (markup) {
-    // console.log('updateMarkup() fired.', markup);
-
+  updateMarkup: function (options) {
     AppDispatcher.handleAction({
       actionType: 'UPDATE_MARKUP',
-      markup: markup
+      options: options
     });
   },
-  updateStyles: function (styles) {
-    // console.log('updateStyle() fired.', styles);
-
+  updateStyles: function (options) {
     AppDispatcher.handleAction({
       actionType: 'UPDATE_STYLES',
-      styles: styles
+      options: options
     });
   }
 };
