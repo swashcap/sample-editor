@@ -2,6 +2,7 @@
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
+var errorHandler = require('../utils/error-handler');
 var _ = require('lodash');
 var Sass = require('../utils/sass');
 var Markdown = require('../utils/markdown');
@@ -53,12 +54,8 @@ AppDispatcher.register(function (payload) {
     case 'UPDATE_MARKUP':
       if (action.options.mode === 'markdown') {
         Markdown(action.options.content).then(function (result) {
-          console.log('AppDispatcher.register() fired', result);
-
           updateMarkup(result);
-        }).catch(function (err) {
-          console.log(err);
-        });
+        }).catch(errorHandler);
       } else {
         updateMarkup(action.options.content);
       }
@@ -68,9 +65,7 @@ AppDispatcher.register(function (payload) {
       if (action.options.mode === 'sass') {
         Sass(action.options.content).then(function (result) {
           updateStyles(result);
-        }).catch(function (err) {
-          console.log(err);
-        });
+        }).catch(errorHandler);
       } else {
         updateStyles(action.options.content);
       }
@@ -78,5 +73,13 @@ AppDispatcher.register(function (payload) {
       break;
   }
 });
+
+AppDispatcher.register(_.debounce(function (payload) {
+  var action = payload.action;
+
+  switch(action.actionType === 'UPDATE_STYLES') {
+
+  }
+}, 1000));
 
 module.exports = Store;

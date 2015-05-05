@@ -4,10 +4,14 @@
 
 .notification {
   background: $teal;
+  border-radius: $border-radius;
   color: $white;
   padding: .75em 4.25em .75em 1em;
   position: relative;
-  transition: opacity $transition-duration;
+
+  + .notification {
+    margin-top: .5em;
+  }
 }
 .notification__message {
   margin: 0;
@@ -36,13 +40,6 @@
   &:active {
     opacity: .5;
   }
-}
-
-/**
- * 'Hidden' state.
- */
-.is-hidden.notification {
-  opacity: 0;
 }
 
 /**

@@ -3,11 +3,10 @@
 var NotificationDispatcher = require('../dispatcher/NotificationDispatcher');
 
 var NotificationActions = {
-  addNotification: function (message, isError) {
+  addNotification: function (notification) {
     NotificationDispatcher.handleAction({
       actionType: 'ADD',
-      message: message,
-      isError: isError
+      notification: notification
     });
   },
   removeNotification: function (id) {

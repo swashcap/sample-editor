@@ -3,23 +3,14 @@
    ========================================================================== */
 
 .output-document {
-  h1 {
-    background: $gray-lighter;
-    font-size: 100%;
-    font-weight: 400;
-    line-height: 2.5;
-    margin: 0;
-    padding: .75em 1em;
-    text-align: right;
-  }
+  padding: .75em 1em;
+
   iframe {
-    border: none;
-    bottom: 0;
+    background: white;
+    border: thin solid $gray-light;
+    border-radius: $border-radius;
     height: 100%;
-    left: 0;
     overflow: scroll;
-    position: absolute;
-    top: 4em;;
     width: 100%;
   }
 }

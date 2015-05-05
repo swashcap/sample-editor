@@ -2,32 +2,50 @@
    Layout
    ========================================================================== */
 
-.site-header,
-.site-footer {
-  left: 0;
-  position: fixed;
-  width: 100%;
-  z-index: 2;
-}
-.site-header {
-  top: 0;
-}
 .site-content {
-  margin: 3.375em 0 2.875em;
+  position: relative;
 
-  @media (min-width: 800px) {
-    padding-right: 50%;
+  > div {
+    display: flex;
+    height: 550px;
+  }
+  .output-document {
+    height: 100%;
     position: relative;
-
-    .output-document {
-      height: 100%;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 50%;
-    }
+    width: 100%;
+    z-index: 100;
   }
 }
-.site-footer {
-  bottom: 0;
+.site-content__notifications {
+  opacity: .75;
+  position: absolute;
+  transition: opacity $transition-duration;
+  right: 1em;
+  left: 516px;
+  bottom: -.5em;
+  z-index: 200;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+.site-content__editors {
+  // display: flex;
+  // flex-direction: column;
+  flex-shrink: 0;
+  height: 100%;
+  width: 500px;
+
+  .editor {
+    height: 50%;
+    overflow: hidden;
+    position: relative;
+    // flex: 1 1 0%;
+  }
+  .code-editor {
+    height: 200px;
+  }
+  .CodeMirror {
+    height: 100%;
+  }
 }

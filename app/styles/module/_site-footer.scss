@@ -4,11 +4,20 @@
 
 .site-footer {
   background: $gray-light;
-  color: $gray-dark;
-  padding: .75em 1em;
+  color: $gray;
+  padding: .5em 1em;
   text-align: right;
 
   small {
     font-size: 80%;
+  }
+  a {
+    color: inherit;
+
+    &:focus,
+    &:hover,
+    &:active {
+      color: $orange;
+    }
   }
 }

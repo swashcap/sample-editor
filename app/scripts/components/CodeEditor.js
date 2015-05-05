@@ -22,6 +22,8 @@ require('codemirror/theme/base16-dark.css');
 require('codemirror/mode/css/css');
 require('codemirror/mode/htmlmixed/htmlmixed');
 require('codemirror/mode/markdown/markdown');
+require('codemirror/addon/scroll/simplescrollbars.js');
+require('codemirror/addon/scroll/simplescrollbars.css');
 
 var MODES = [{
   mode: 'text/x-scss',
@@ -56,16 +58,21 @@ function getModeFromName(name) {
 var CodeEditor = React.createClass({
   propTypes: {
     lineNumbers: React.PropTypes.bool,
+    lineWrapping: React.PropTypes.bool,
     mode: React.PropTypes.string,
     onChange: React.PropTypes.func,
+    scrollbarStyle: React.PropTypes.string,
     theme: React.PropTypes.string,
     value: React.PropTypes.string
   },
   getDefaultProps: function () {
     return {
+      className: 'code-editor',
       lineNumbers: true,
-      value: '',
-      theme: 'base16-dark'
+      lineWrapping: true,
+      scrollbarStyle: 'simple',
+      theme: 'base16-dark',
+      value: ''
     };
   },
   componentDidMount: function () {

@@ -9,21 +9,19 @@ var _ = require('lodash');
  *
  * @todo  Figure out a better way to store notifications.
  */
-var _notifications = [{
-  id: 100,
-  isError: true,
-  message: 'There was an error compiling Sass.'
-}, {
-  id: 101,
-  isError: false,
-  message: 'Simple notification'
-}];
+var _notifications = [];
+
+var MAX_NOTIFICATION_COUNT = 6;
 
 var NotificationStore = _.extend({}, EventEmitter.prototype, {
   getNotifications: function () {
     return _notifications;
   },
   addNotification: function (notification) {
+    if (_notifications.length >= MAX_NOTIFICATION_COUNT) {
+      _notifications.splice(0, 1);
+    }
+
     _notifications.push(notification);
 
     this.emit('change');
@@ -50,9 +48,9 @@ NotificationDispatcher.register(function (payload) {
     case 'ADD':
       NotificationStore.addNotification({
         id: 'id' + Date.now() + Math.random(),
-        message: action.message,
-        isError: (action.isError ? true : false)
-      })
+        message: action.notification.message,
+        isError: (action.notification.isError ? true : false)
+      });
       break;
     case 'REMOVE':
       NotificationStore.removeNotification(action.id);

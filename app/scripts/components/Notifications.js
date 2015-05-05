@@ -30,7 +30,7 @@ var Notification = React.createClass({
     var self = this;
 
     return (
-      <div>
+      <div className="notifications">
         {this.state.notifications.map(function (notification) {
           return (
             <div className={"notification " + (notification.isError ? 'is-error' : '')}>

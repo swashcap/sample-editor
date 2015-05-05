@@ -21,7 +21,14 @@ var MarkupEditor = React.createClass({
     });
   },
   changeMode: function (e) {
-    this.setState({mode: e.target.value});
+    var mode = e.target.value;
+    var content = this.state.src;
+
+    this.setState({mode: mode});
+    Actions.updateMarkup({
+      content: content,
+      mode: mode
+    });
   },
   render: function () {
     return (

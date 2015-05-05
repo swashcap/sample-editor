@@ -40,8 +40,6 @@ var Markdown = {
           command: 'toHTML',
           payload: markdown
         }, function (result) {
-          console.log(arguments);
-
           if (result) {
             resolve (result);
           } else {
