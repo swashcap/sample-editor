@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --content-base app --hot --progress --colors"
+    "start": "webpack-dev-server --content-base app --hot --progress --colors",
+    "build": "NODE_ENV=production webpack -p"
   },
   "author": "Cory Reed <swashcap@gmail.com>",
   "license": "MIT",

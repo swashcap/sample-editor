@@ -8,7 +8,7 @@ var PATHS = {
 module.exports = {
   context: PATHS.app,
   entry: {
-    app: ['webpack/hot/dev-server', './scripts/app.js']
+    app: ['./scripts/app.js']
   },
   output: {
     path: PATHS.app,
