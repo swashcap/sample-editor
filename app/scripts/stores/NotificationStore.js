@@ -11,7 +11,7 @@ var _ = require('lodash');
  */
 var _notifications = [];
 
-var MAX_NOTIFICATION_COUNT = 6;
+var MAX_NOTIFICATION_COUNT = 2;
 
 var NotificationStore = _.extend({}, EventEmitter.prototype, {
   getNotifications: function () {
