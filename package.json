@@ -23,7 +23,7 @@
   "dependencies": {
     "codemirror": "^5.2.0",
     "flux": "^2.0.3",
-    "jquery": "^2.1.4",
+    "jquery": "^3.3.1",
     "lodash": "^3.8.0",
     "markdown": "^0.5.0",
     "react": "^0.13.2",
